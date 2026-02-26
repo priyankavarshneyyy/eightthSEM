@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ABC.COM - Page 3</title>
+</head>
+<body>
+
+<h2>ABC.COM</h2>
+
+<h3 id="displayName"></h3>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("username");
+    document.getElementById("displayName").innerHTML =
+        "Hello " + name + ", Welcome to ABC.COM!";
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ABC.COM - Welcome</title>
+</head>
+<body>
+
+<h2>Welcome to ABC.COM</h2>
+
+<p>
+ABC.COM is a leading website that provides quality content, 
+latest updates and useful resources for users.
+</p>
+
+<form action="page3.html" method="get">
+    <!-- Hidden field to pass name -->
+    <input type="hidden" name="username" 
+           value="<?php echo $_GET['username']; ?>">
+           
+    <input type="submit" value="Next">
+</form>
+
+</body>
+</html>
