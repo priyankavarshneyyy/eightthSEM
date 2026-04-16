@@ -1,0 +1,166 @@
+// form1 code
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+font-family: Arial;
+}
+
+.result{
+margin-top:20px;
+color:blue;
+font-weight:bold;
+}
+</style>
+
+<script>
+
+function validateForm(){
+
+let name = document.getElementById("name").value;
+let age = document.getElementById("age").value;
+
+if(name=="" || age==""){
+alert("Please fill all fields");
+return false;
+}
+
+document.getElementById("result").innerHTML =
+"Submitted Successfully: Name = " + name + " Age = " + age;
+
+return false;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Student Form</h2>
+
+<form onsubmit="return validateForm()">
+
+Name:<br>
+<input type="text" id="name"><br><br>
+
+Age:<br>
+<input type="number" id="age"><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<div id="result" class="result"></div>
+
+</body>
+</html>
+
+
+///////form2 code
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+body{
+font-family: Arial;
+}
+
+.result{
+margin-top:20px;
+color:blue;
+font-weight:bold;
+}
+</style>
+
+<script>
+
+function validateFeedback(){
+
+let message = document.getElementById("msg").value;
+
+if(message==""){
+alert("Please enter feedback");
+return false;
+}
+
+document.getElementById("result").innerHTML =
+"Feedback Submitted: " + message;
+
+return false;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Feedback Form</h2>
+
+<form onsubmit="return validateFeedback()">
+
+Your Feedback:<br>
+<textarea id="msg"></textarea><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<div id="result" class="result"></div>
+
+</body>
+</html>
+
+
+///////index code
+<!DOCTYPE html>
+<html>
+<head>
+<title>Frames Website</title>
+</head>
+
+<frameset cols="20%,80%">
+    
+    <frame src="menu.html">
+    
+    <frame name="formframe">
+
+</frameset>
+
+</html>
+
+
+///menu code
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+font-family: Arial;
+background: #f0f0f0;
+text-align:center;
+}
+
+a{
+display:block;
+margin:20px;
+font-size:20px;
+text-decoration:none;
+color:blue;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Forms</h2>
+
+<a href="form1.html" target="formframe">Student Form</a>
+
+<a href="form2.html" target="formframe">Feedback Form</a>
+
+</body>
+</html>
