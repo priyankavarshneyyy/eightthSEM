@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open New Window</title>
+    <script>
+        function openNewWindow() {
+            window.open(
+                "https://www.google.com",   // URL
+                "_blank",                   // open in new tab/window
+                "width=500,height=400"     // size of window
+            );
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Open New Window Example</h2>
+
+<button onclick="openNewWindow()">Open Window</button>
+
+</body>
+</html>
