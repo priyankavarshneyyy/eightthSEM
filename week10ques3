@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Webpage</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        /* Image styling */
+        img {
+            width: 200px;
+            transition: transform 0.5s;
+        }
+
+        /* Animation on click */
+        .animate {
+            transform: scale(1.5) rotate(10deg);
+        }
+
+        /* Dropdown menu */
+        select {
+            padding: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Image Effects</h2>
+
+    <img id="myImage"
+        src="https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?cs=srgb&dl=animal-cute-eyes-617278.jpg&fm=jpg"
+        onmouseover="changeImage()" onmouseout="resetImage()" onclick="animateImage()">
+
+    <br><br>
+
+    <!-- Dropdown Menu -->
+    <h3>Go to Page</h3>
+    <select onchange="goToPage(this.value)">
+        <option value="">Select Page</option>
+        <option value="https://www.google.com">Google</option>
+        <option value="https://www.wikipedia.org">Wikipedia</option>
+        <option value="https://www.github.com">GitHub</option>
+    </select>
+
+    <script>
+        // Rollover effect
+        function changeImage() {
+            document.getElementById("myImage").src = "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg";
+        }
+
+        function resetImage() {
+            document.getElementById("myImage").src = "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?cs=srgb&dl=animal-cute-eyes-617278.jpg&fm=jpg";
+        }
+
+        // Click animation
+        function animateImage() {
+            let img = document.getElementById("myImage");
+            img.classList.toggle("animate");
+        }
+
+        // Dropdown navigation
+        function goToPage(url) {
+            if (url) {
+                window.location.href = url;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
