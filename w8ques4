@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Design</title>
+
+<style>
+body{
+    background:#dcdcdc;
+    font-family: "Times New Roman", serif;
+}
+
+.container{
+    width:700px;
+    margin:auto;
+    border:1px solid black;
+    padding:20px;
+}
+
+h2{
+    text-align:center;
+    color:#2c5a8a;
+    text-decoration: underline;
+}
+
+label{
+    display:inline-block;
+    width:150px;
+    color:#2c5a8a;
+    font-size:20px;
+}
+
+input[type="text"]{
+    width:300px;
+    height:25px;
+}
+
+textarea{
+    width:300px;
+    height:80px;
+}
+
+select{
+    width:120px;
+}
+
+.row{
+    margin:15px 0;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Details</h2>
+
+<div class="row">
+<label>Your Name:</label>
+<input type="text">
+</div>
+
+<div class="row">
+<label>Your Address:</label>
+<input type="text"><br><br>
+<label></label>
+<input type="text">
+</div>
+
+<div class="row">
+<label>Your Gender:</label>
+Male <input type="radio" name="gender">
+Female <input type="radio" name="gender">
+</div>
+
+<div class="row">
+<label>Your Country:</label>
+<select>
+<option>India</option>
+<option>USA</option>
+<option>UK</option>
+</select>
+</div>
+
+<div class="row">
+<label>Your Opinion:</label>
+<textarea></textarea>
+</div>
+
+</div>
+
+</body>
+</html>
