@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 10px;
+            display: inline-block;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            width: 30px;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Calendar Generator</h2>
+
+Enter Year: <input type="number" id="year">
+<button onclick="generateCalendar()">Show Calendar</button>
+
+<div id="calendar"></div>
+
+<script>
+function generateCalendar() {
+    let year = document.getElementById("year").value;
+    let calendarDiv = document.getElementById("calendar");
+    calendarDiv.innerHTML = "";
+
+    const months = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+
+    for (let m = 0; m < 12; m++) {
+
+        let firstDay = new Date(year, m, 1).getDay();
+        let daysInMonth = new Date(year, m + 1, 0).getDate();
+
+        let table = "<table>";
+        table += "<tr><th colspan='7'>" + months[m] + "</th></tr>";
+        table += "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+
+        let date = 1;
+
+        for (let i = 0; i < 6; i++) {
+            table += "<tr>";
+
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDay) {
+                    table += "<td></td>";
+                } else if (date > daysInMonth) {
+                    break;
+                } else {
+                    table += "<td>" + date + "</td>";
+                    date++;
+                }
+            }
+
+            table += "</tr>";
+        }
+
+        table += "</table>";
+        calendarDiv.innerHTML += table;
+    }
+}
+</script>
+
+</body>
+</html>
