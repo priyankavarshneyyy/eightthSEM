@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar Selector</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            width: 40px;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Select Month and Year</h2>
+
+<!-- Month Dropdown -->
+<select id="month">
+    <option value="0">January</option>
+    <option value="1">February</option>
+    <option value="2">March</option>
+    <option value="3">April</option>
+    <option value="4">May</option>
+    <option value="5">June</option>
+    <option value="6">July</option>
+    <option value="7">August</option>
+    <option value="8">September</option>
+    <option value="9">October</option>
+    <option value="10">November</option>
+    <option value="11">December</option>
+</select>
+
+<!-- Year Dropdown -->
+<select id="year">
+    <script>
+        for (let y = 2000; y <= 2030; y++) {
+            document.write("<option value='" + y + "'>" + y + "</option>");
+        }
+    </script>
+</select>
+
+<br><br>
+
+<button onclick="showCalendar()">Show Calendar</button>
+
+<div id="calendar"></div>
+
+<script>
+function showCalendar() {
+    let month = parseInt(document.getElementById("month").value);
+    let year = parseInt(document.getElementById("year").value);
+
+    let firstDay = new Date(year, month, 1).getDay();
+    let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let months = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+
+    let table = "<table>";
+    table += "<tr><th colspan='7'>" + months[month] + " " + year + "</th></tr>";
+    table += "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+
+    let date = 1;
+
+    for (let i = 0; i < 6; i++) {
+        table += "<tr>";
+
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                table += "<td></td>";
+            } else if (date > daysInMonth) {
+                break;
+            } else {
+                table += "<td>" + date + "</td>";
+                date++;
+            }
+        }
+
+        table += "</tr>";
+    }
+
+    table += "</table>";
+
+    document.getElementById("calendar").innerHTML = table;
+}
+</script>
+
+</body>
+</html>
