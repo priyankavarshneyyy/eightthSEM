@@ -1,0 +1,78 @@
+//////////////////students.xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/css" href="style.css"?>
+
+<students>
+    <student>
+        <name>Priyanka</name>
+        <course>BCA</course>
+    </student>
+    <student>
+        <name>Rahul</name>
+        <course>BBA</course>
+    </student>
+</students>
+
+
+//////style.csss
+students {
+    display: block;
+    font-family: Arial;
+    margin: 20px;
+}
+
+student {
+    display: block;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+}
+
+name {
+    display: block;
+    font-weight: bold;
+    color: blue;
+    font-size: 18px;
+}
+
+course {
+    display: block;
+    color: green;
+    font-size: 16px;
+}
+
+/////style.xsl
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+<xsl:template match="/">
+
+<html>
+<body>
+    <h2>Student List</h2>
+    
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+
+        <xsl:for-each select="students/student">
+            <tr>
+                <td><xsl:value-of select="name"/></td>
+                <td><xsl:value-of select="course"/></td>
+            </tr>
+        </xsl:for-each>
+
+    </table>
+
+</body>
+</html>
+
+</xsl:template>
+
+</xsl:stylesheet>
